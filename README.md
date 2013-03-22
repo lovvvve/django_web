@@ -1,9 +1,4 @@
 django_web
 ==========
 
-django_web
-
-
-
-====
-我的练习
+django_web 测试
