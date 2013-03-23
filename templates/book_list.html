@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}The book list{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    <h2>我的书籍列表:</h2>
+    {% for name in names %}
+    <li>书名: {{ name }}</li>
+    {% endfor %}
+{% endblock %}
