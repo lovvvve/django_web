@@ -39,3 +39,7 @@ def HelloWorld(request):
     # html = "<html><body><h1>Hello world!</h1></body></html>"
     # return HttpResponse(html)
     return render_to_response("helloworld.html")
+
+def my_image(request):
+    image_data = open("./static/1.png","rb").read()
+    return HttpResponse(image_data, mimetype="image/png")

@@ -17,5 +17,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
     (r'^time/$', current_datetime),
     (r'^time/plus/(\d{1,2})/$', hours_ahead),
-    (r'^image/$')
+     (r'^image/$', my_image),
+    (r'^$',HelloWorld),
 )
