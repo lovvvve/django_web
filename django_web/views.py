@@ -8,11 +8,12 @@
 #:Options: 
 
 
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 from django.template import Template, Context
 from django.template.loader import get_template
 from django.shortcuts import render_to_response
 import datetime
+import MySQLdb
 
 def current_datetime(request):
     now = datetime.datetime.now()
@@ -25,12 +26,16 @@ def current_datetime(request):
 
 def hours_ahead(request,offsef):
     """docstring for hours_ahead"""
-    offsef = int(offsef)
+    try:
+        offsef = int(offsef)
+    except ValueError:
+        raise Http404
     dt = datetime.datetime.now() + datetime.timedelta(hours=offsef)
 #    html = "<html><body><h1>In %s hour(s), it will be %s.</h1></body></html>" % (offsef, dt)
  #   return HttpResponse(html)
     return render_to_response('hours_ahead.html',{'hour_offset': 4, 'next_time': dt})
 
-def my_image(requset):
-    image_data = open("./static/1.png","rb").read()
-    return HttpResponse(image_data, mimetype="image/png")
+def HelloWorld(request):
+    # html = "<html><body><h1>Hello world!</h1></body></html>"
+    # return HttpResponse(html)
+    return render_to_response("helloworld.html")
